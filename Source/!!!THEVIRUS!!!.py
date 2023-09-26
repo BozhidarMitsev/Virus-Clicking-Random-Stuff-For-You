@@ -7,12 +7,16 @@ import keyboard
 # List of available keyboard keys (including num keys as regular numbers)
 keys = [
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-    "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "esc", "f1", "f2", "f3",
+    "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "esc", "*",
+    "+", "--", "/", ",", "/", ";", "=", "{"
+    , "}", "'",
+]
+
+specialKeys = [ "esc", "f1", "f2", "f3",
     "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11", "f12", "printscreen", "scrolllock", "pause", "insert",
     "home", "page up", "delete", "end", "page down", "right", "left", "down", "up", "num", "*",
     "+", "--", "/", ",", "/", ";", "=", "num enter", "{"
-    , "}", "'", "Home"
-]
+    , "}", "'", "Home"]
 
 # List of specific key combinations
 combinations = ["ctrl+c", "ctrl+v", "ctrl+x", "ctrl+z", "ctrl+y", "ctrl+a", "ctrl+l", "win+f1"]
@@ -21,17 +25,20 @@ combinations = ["ctrl+c", "ctrl+v", "ctrl+x", "ctrl+z", "ctrl+y", "ctrl+a", "ctr
 running = True
 
 def panic_button_event(e=None):
-    sys.exit()
+    running = False
 
 # Listen for the panic button combination "Ctrl+Num9" to stop the script
 keyboard.add_hotkey("ctrl+9", panic_button_event)
 
 while running:
-    action = random.choice(["press_key", "press_combination", "erase_key", "change_language", "click_key"])
+    action = random.choice(["press_key", "press_combination", "erase_key", "change_language", "click_key", "phrase_random", "special_key"])
     
     if action == "press_key":
         key = random.choice(keys)
         pyautogui.press(key)
+    elif action == "special_key":
+        specialKey = random.choice(specialKeys)
+        pyautogui.hotkey(specialKey)
         
     elif action == "press_combination":
         combination = random.choice(combinations)
