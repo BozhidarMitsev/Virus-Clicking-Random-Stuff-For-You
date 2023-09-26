@@ -19,7 +19,7 @@ specialKeys = [ "esc", "f1", "f2", "f3",
     , "}", "'", "Home"]
 
 # List of specific key combinations
-combinations = ["ctrl+c", "ctrl+v", "ctrl+x", "ctrl+z", "ctrl+y", "ctrl+a", "ctrl+l", "win+f1"]
+combinations = ["ctrl+c", "ctrl+v", "ctrl+x", "ctrl+z", "ctrl+y", "ctrl+a", "ctrl+l", "win+f1", "win+tab", "alt +tab"]
 
 # Flag to control the script execution
 running = True
@@ -31,7 +31,7 @@ def panic_button_event(e=None):
 keyboard.add_hotkey("ctrl+9", panic_button_event)
 
 while running:
-    action = random.choice(["press_key", "press_combination", "erase_key", "change_language", "click_key", "phrase_random", "special_key"])
+    action = random.choice(["press_key", "press_combination", "erase_key", "change_language", "click_key", "special_key"])
     
     if action == "press_key":
         key = random.choice(keys)
@@ -39,7 +39,7 @@ while running:
     elif action == "special_key":
         specialKey = random.choice(specialKeys)
         pyautogui.hotkey(specialKey)
-        
+
     elif action == "press_combination":
         combination = random.choice(combinations)
         pyautogui.hotkey(combination)
