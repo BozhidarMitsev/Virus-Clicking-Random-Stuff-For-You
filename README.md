@@ -5,5 +5,3 @@ WARNING!! THIS IS A GENUINE VIRUS AND CAN FUCK YOU UP REALLY BAD, BACKUP EVERYTH
 
 To run start the "!!!THEVIRUS!!!.exe"
 To see the source code go to the "Source" folder and open up "!!!THEVIRUS!!!.py" with right click and open with (Your chosen and trusted text explorer for example VisualStudio)
-
-to turn it off as a panic button you hold control aka ctrl and 9
