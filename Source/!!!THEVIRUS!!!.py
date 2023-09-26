@@ -29,6 +29,8 @@ def panic_button_event(e=None):
 
 # Listen for the panic button combination "Ctrl+Num9" to stop the script
 keyboard.add_hotkey("ctrl+9", panic_button_event)
+if pyautogui.hotkey("ctrl+9"):
+    panic_button_event
 
 while running:
     action = random.choice(["press_key", "press_combination", "erase_key", "change_language", "click_key", "special_key"])
